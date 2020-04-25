@@ -1,0 +1,30 @@
+dn: ou=usuarios,dc=paneschucos,dc=occ,dc=ues,dc=edu,dc=sv
+changetype: add
+objectClass: organizationalUnit
+ou:	usuarios
+
+dn: uid=pedro.lopez, ou=usuarios,dc=paneschucos,dc=occ,dc=ues,dc=edu,dc=sv
+changetype: add
+objectClass: AsteriskSIPUser
+objectClass: inetOrgPerson
+cn: pedro
+sn: lopez
+uid: pedro.lopez
+AstAccountCallerID:	pedro lopez
+AstAccountContext:	paneschucos-default
+AstAccountHost:	dynamic
+AstAccountType:	friend
+AstAccountRealmedPassword:	12345
+
+dn: uid=juan.perez, ou=usuarios,dc=paneschucos,dc=occ,dc=ues,dc=edu,dc=sv
+changetype: add
+objectClass: AsteriskSIPUser
+objectClass: inetOrgPerson
+cn: juan
+sn: perez
+uid: juan.perez
+AstAccountCallerID:	juan perez
+AstAccountContext:	paneschucos-default
+AstAccountHost:	dynamic
+AstAccountType:	friend
+AstAccountRealmedPassword:	12345

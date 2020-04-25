@@ -1,0 +1,22 @@
+slapd	slapd/root_password_again	password	12345
+slapd	slapd/internal/adminpw	password	admin
+slapd	slapd/password1	password	admin
+slapd	slapd/root_password	password	12345
+slapd	slapd/internal/generated_adminpw	password	admin
+slapd	slapd/password2	password	admin
+slapd	slapd/invalid_config	boolean	true
+slapd	shared/organization	string	nodomain
+slapd	slapd/upgrade_slapcat_failure	error	
+slapd	slapd/move_old_database	boolean	true
+slapd	slapd/ppolicy_schema_needs_update	select	abort installation
+# Potentially unsafe slapd access control configuration
+slapd	slapd/unsafe_selfwrite_acl	note	
+slapd	slapd/password_mismatch	note	
+slapd	slapd/no_configuration	boolean	false
+slapd	slapd/dump_database_destdir	string	/var/backups/slapd-VERSION
+slapd	slapd/backend	select	MDB
+slapd	slapd/domain	string	paneschucos.occ.ues.edu.sv
+slapd	slapd/dump_database	select	when needed
+# Do you want the database to be removed when slapd is purged?
+slapd	slapd/purge_database	boolean	false
+

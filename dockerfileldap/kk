@@ -1,0 +1,115 @@
+apt-get update
+    2  tua gay
+    3* 
+    4  apt-get install apt-update
+    5  apt-get install apt-utils
+    6  echo < echo hola
+    7  echo < ${echo hola}
+    8  echo < $(echo hola)
+    9  echo hola
+   10  echo 
+   11  echo | echo hola
+   12  echo |  hola
+   13  echo | echo hola
+   14  echo << echo hola
+   15  echo < echo hola
+   16  apt-get install -y | echo 12345
+   17  apt-get install -y slapd | echo 12345
+   18  echo 12345 > pass
+   19  apt-get install -y slapd < pass
+   20   apt-get install debconf-utils
+   21  dpkg-preconfigure
+   22  dpkg-preconfigure apt install slapd
+   23  slapd
+   24  ls /etc/ldap/
+   25  debconf-get-selections | grep slapd
+   26  echo "slapdslapd/password2password 12345" | debconf-set-selections 
+   27  echo "slapd slapdslapd/password2password 12345" | debconf-set-selections 
+   28  echo "slapd slapd/internal/generated_adminpw password 12345" | debconf-set-selections 
+   29  debconf-get-selections | grep slapd
+   30  debconf-get-selections | grep slapd
+   31  debconf-get-selections | grep slapd
+   32  echo "slapd/internal/adminpw password 12345" | debconf-set-selections 
+   33  echo "slapd slapd/internal/adminpw password 12345" | debconf-set-selections 
+   34  debconf-get-selections | grep slapd
+   35  debconf-get-selections | grep slapd
+   36  echo "slapd slapd/password2password 12345" | debconf-set-selections 
+   37  echo "slapd slapd/domain string paneschucos.occ.ues.edu.sv" | debconf-set-selections 
+   38  apt remove slapd
+   39  debconf-get-selections | grep slapd
+   40  apt purge slapd
+   41  apt autoremove slapd
+   42  debconf-get-selections | grep slapd
+   43  echo "slapd slapd/domain string paneschucos.occ.ues.edu.sv" | debconf-set-selections 
+   44  echo "slapd slapd/internal/adminpw password 12345" | debconf-set-selections 
+   45  echo "slapd slapd/internal/generated_adminpw password 12345" | debconf-set-selections 
+   46  apt-get install -y slapd
+   47  debconf-get-selections | grep slapd
+   48  apt autoremove slapd
+   49  apt purge slapd
+   50  apt remove slapd
+   51  debconf-get-selections | grep slapd
+   52  debconf-set-selections <<< ‘slapd/root_password password 123123’
+   53  debconf-set-selections <<< 'slapd/root_password password 12345'
+   54  debconf-set-selections <<< 'slapd/root_password password 12345'
+   55  export DEBIAN_FRONTEND=noninteractive
+   56  debconf-set-selections <<< 'slapd/root_password password 12345'
+   57  debconf-set-selections <<< 'slapd/root_password_again 12312'
+   58  debconf-set-selections <<< 'slapd slapd/root_password_again 12312'
+   59  debconf-set-selections <<< 'slapd/root_password password 12345'
+   60  debconf-set-selections <<< 'slapd/root_password password '12345''
+   61  debconf-set-selections <<< 'slapd/root_password password '12345'
+
+   62  sudo debconf-set-selections <<< 'slapd/root_password password your_password'
+   63   debconf-set-selections <<< 'slapd/root_password password your_password'
+   64  echo "slapd/root_password password your_password" | debconf-set-selections 
+   65  history
+   66  debconf-get-selections | grep slapd
+   67  echo "slapd/root_password password your_password" | debconf-set-selections 
+   68  echo -e "slapd slapd/root_password password KappaRoss" |debconf-set-selections
+   69  echo -e "slapd slapd/root_password_again password 12345" |debconf-set-selections
+   70  echo -e "slapd slapd/root_password password 12345" |debconf-set-selections
+   71  debconf-get-selections | grep slapd
+   72  echo -e "slapd slapd/internal/adminpw password test" |debconf-set-selections
+   73  echo -e "slapd slapd/internal/generated_adminpw password test" |debconf-set-selections
+   74  echo -e "slapd slapd/password2 password test" |debconf-set-selections
+   75  echo -e "slapd slapd/password1 password test" |debconf-set-selections
+   76  echo -e "slapd slapd/domain string paneschucos.occ.ues.edu.sv" |debconf-set-selections
+   77  debconf-get-selections | grep slapd
+   78  cat /root/debconf-slapd.conf | debconf-set-selections
+   79  apt-get --help
+   80  man apt-get
+   81  apt-get install -y slapd
+   82  debconf-get-selections | grep slapd
+   83  salpcat
+   84  slapcat
+   85  slapcat -d cn=config
+   86  slapcat -d cn=config
+   87  cat /etc/ldap/slapd.d/cn\=config/olcDatabase\=\{0\}config.ldif 
+   88  cat /etc/ldap/slapd.d/cn\=config/olcDatabase\=\{0\}config.ldif 
+   89  ip addr
+   90  cat /etc/ldap/slapd.d/cn\=config/olcDatabase\=\{1\}mdb.ldif 
+   91  debconf-get-selections | grep slapd
+   92  ss -tapn
+   93  cat /etc/ldap/slapd.d/cn\=config/olcDatabase\=\{1\}mdb.ldif 
+   94  sudo dpkg-reconfigure slapd
+   95   dpkg-reconfigure slapd
+   96  cat /etc/ldap/slapd.d/cn\=config/olcDatabase\=\{1\}mdb.ldif 
+   97  apt intall ldap-utils
+   98  apt install ldap-utils
+   99  ldapsearch -D dn="cn=admin,dc=paneschucos,dc=occ,dc=ues,dc=edu,dc=sv" -b dc=paneschucos,dc=occ,dc=ues,dc=edu,dc=sv -w 12345
+  100  ldapsearch -D cn=admin,dc=paneschucos,dc=occ,dc=ues,dc=edu,dc=sv -b dc=paneschucos,dc=occ,dc=ues,dc=edu,dc=sv -w 12345
+  101   dpkg-reconfigure slapd
+  102  debconf-get-selections | grep slapd
+  103  slapd slapd/password1 password admin
+  104  slapd slapd/internal/adminpw password admin
+  105  slapd slapd/internal/generated_adminpw password admin
+  106  echo "slapd slapd/password1 password admin" | debconf-set-selections 
+  107  echo "slapd slapd/internal/adminpw password admin" | debconf-set-selections 
+  108  echo "slapd slapd/internal/generated_adminpw password admin" | debconf-set-selections 
+  109  echo "slapd slapd/password2 password admin" | debconf-set-selections 
+  110  dpkg-reconfigure slapd
+  111  ldapsearch -D cn=admin,dc=paneschucos,dc=occ,dc=ues,dc=edu,dc=sv -b dc=paneschucos,dc=occ,dc=ues,dc=edu,dc=sv -w admin
+  112  history
+  113  history > history.txt
+

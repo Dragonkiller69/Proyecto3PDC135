@@ -42,7 +42,7 @@ EXPOSE 389
 
 RUN echo "#\!/bin/bash \n\
 echo \$IPMASTER && echo \${IP1MASTER} && \
-sed -i -e \"s/IPMASTER/\$IPMASTER/\" syncrepl.ldif && \
+sed -i -e \"s/IPMASTER/\$MASTER_SERVICE_SERVICE_HOST/\" syncrepl.ldif && \
 service slapd start  && \
 ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/asterisk.ldif \
 && ldapadd -Y EXTERNAL -H ldapi:/// -f syncrepl.ldif && tail -f /dev/null " > entrypoint.sh && chmod +x entrypoint.sh

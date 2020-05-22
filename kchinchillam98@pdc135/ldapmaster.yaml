@@ -1,0 +1,22 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: ldap-master
+  labels:
+    app: ldap-master
+spec:
+  selector:
+    matchLabels:
+      app: ldap-master
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: ldap-master
+    spec:
+      containers:
+      - name: master
+        image: 192.168.0.20:5000/ldap:master
+        ports:
+        - containerPort: 389
+

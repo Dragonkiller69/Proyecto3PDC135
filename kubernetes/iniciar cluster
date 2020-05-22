@@ -1,0 +1,12 @@
+kubeadm join 10.128.0.2:6443 --token zozmxy.lhwau69m0vzgy5e8 \
+    --discovery-token-ca-cert-hash sha256:81b52264d5e5a23631daa3b43c1f941cdb199e740e4459d8177ed68834caffed
+
+    mkdir /home/kchinchillam98/.kube
+    cp /etc/kubernetes/admin.conf /home/kchinchillam98/.kube/config
+    chown -R kchinchillam98:kchinchillam98 /home/kchinchillam98/.kube/config
+    kubeadm init --pod-network-cidr=10.244.0.0/16
+
+    kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+    kubeadm join 10.128.0.2:6443 --token il1004.tukdh659a8ctsa0x \
+    --discovery-token-ca-cert-hash sha256:7d198bfe9ecc994e4fe778df2bb6687e741bdfd5c0086c83cadaa49de43852de

@@ -6,10 +6,7 @@ RUN mkdir certificados
 ADD certificado/ certificados/
 RUN echo ' \
     upstream backend { \n\
-		least_conn;\n\ 
         server IPSERVER1;\n\
-	    server IPSERVER2;\n\
-	    server IPSERVER3;\n\
     }\n\
     server {\n\
 	    listen 80 default_server;\n\
@@ -24,11 +21,11 @@ RUN echo ' \
 	    ssl_certificate_key /etc/nginx/certificados/chilate.key;\n\
 	    ssl_trusted_certificate /etc/nginx/certificados/cacert.pem;\n\
         location / {\n\
-            proxy_pass http://backend/phpl-dap-asterisk/;\n\
+            proxy_pass http://backend/sessionsync/;\n\
         }	\n\
 	}' > conf.d/load-balancer.conf && \
 	echo "#\!/bin/bash \n\
-		sed -i -e \"s/IPSERVER1/\$IPSERVER1/; s/IPSERVER2/\$IPSERVER2/ ; s/IPSERVER3/\$IPSERVER3/\" /etc/nginx/conf.d/load-balancer.conf && \
+		sed -i -e \"s/IPSERVER1/\$IPSERVER1/\" /etc/nginx/conf.d/load-balancer.conf && \
 		service nginx start && \
 		tail -f /dev/null " > entrypoint.sh && chmod +x entrypoint.sh && \
 	rm sites-enabled/default

@@ -1,0 +1,22 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: apachephp
+spec:
+  selector:
+    matchLabels:
+      app: apachephp
+  replicas: 2 
+  template:
+    metadata:
+      labels:
+        app: apachephp
+    spec:
+      containers:
+      - name: appphp
+        image: 192.168.0.20:5000/apachephpldap
+        ports:
+        - containerPort: 80
+

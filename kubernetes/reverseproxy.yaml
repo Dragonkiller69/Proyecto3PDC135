@@ -1,22 +1,43 @@
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  name: app-deployment
+  name: nginx
   labels:
-    app: apachephp
+    app: nginx
 spec:
   selector:
     matchLabels:
-      app: apachephp
-  replicas: 2 
+      app: nginx
+  replicas: 1 
   template:
     metadata:
       labels:
-        app: apachephp
+        app: nginx
     spec:
       containers:
-      - name: appphp
-        image: 192.168.0.20:5000/apachephpldap
+      - name: nginx
+        image: 35.209.34.167:5000/load-balancer:nginx1.0
         ports:
         - containerPort: 80
-
+        - containerPort: 443
+        env:
+          - name: IPSERVER1
+            value: "app-service"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-service
+spec:
+  type: NodePort
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30080
+    - protocol: TCP
+      port: 443
+      targetPort: 443
+      nodePort: 30443

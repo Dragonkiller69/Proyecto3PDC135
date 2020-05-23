@@ -1,6 +1,6 @@
 FROM debian:buster-slim
 LABEL maintainer=devfernando95@gmail.com 
-ENV REPOSITORY="https://gitlab.com/fernnx2/phpl-dap-asterisk"
+ENV REPOSITORY="https://github.com/Dragonkiller69/apachephpldap"
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
@@ -17,6 +17,9 @@ RUN a2enmod rewrite
 EXPOSE 80
 WORKDIR /var/www/html
 
-RUN git clone ${REPOSITORY}
+RUN git clone ${REPOSITORY} && \
+    echo "#\!/bin/bash \n\
+		  sed -i -e \"s/URLREAD/\$URLREAD/; s/URLWRITE/\$URLWRITE/\" /var/www/html/apachephpldap/auth/auth.php && \
+		  apachectl -D FOREGROUND " > entrypoint.sh && chmod +x entrypoint.sh
 
-CMD apachectl -D FOREGROUND
+ENTRYPOINT ["/bin/bash", "/var/www/html/entrypoint.sh"]   

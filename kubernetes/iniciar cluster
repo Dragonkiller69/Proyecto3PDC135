@@ -6,7 +6,8 @@ kubeadm join 10.128.0.2:6443 --token zozmxy.lhwau69m0vzgy5e8 \
     chown -R kchinchillam98:kchinchillam98 /home/kchinchillam98/.kube/config
     kubeadm init --pod-network-cidr=10.244.0.0/16
 
-    kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+    
+ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 
-    kubeadm join 10.128.0.2:6443 --token il1004.tukdh659a8ctsa0x \
-    --discovery-token-ca-cert-hash sha256:7d198bfe9ecc994e4fe778df2bb6687e741bdfd5c0086c83cadaa49de43852de
+kubeadm join 10.128.0.7:6443 --token 7ye7mt.30x798e735uhgy8p \
+    --discovery-token-ca-cert-hash sha256:6ebc78fd17a2a438e6a8a676e6f724bf3ab2a216011fabe8b13ff095ed6107b4 
